@@ -1,0 +1,30 @@
+class Prof {
+  constructor() {
+    this.img = loadImage("jogo/imgjogo/prof.png");
+    this.posX = 240;
+    this.posY = 315;
+    this.velocidade = 5;
+    this.largura = 120;
+    this.altura = 100;
+    this.yInicial = this.posY;
+    this.yFinal = this.posY + this.altura;
+    this.xIncial = this.posX;
+    this.xFinal = this.posX + this.largura;
+  }
+  //movimento do jogador
+  mova() {
+    image(this.img, this.posX, this.posY, this.largura, this.altura);
+
+    if (keyIsDown(37) && this.xInicial > -35) {
+      this.posX -= this.velocidade;
+    }
+    if (keyIsDown(39) && this.xFinal < 640) {
+      this.posX += this.velocidade;
+    }
+
+    this.yInicial = this.posY;
+    this.yFinal = this.posY + this.altura;
+    this.xInicial = this.posX;
+    this.xFinal = this.posX + this.largura;
+  }
+}
